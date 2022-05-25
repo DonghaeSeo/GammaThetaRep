@@ -1,4 +1,4 @@
-Restrict := function( S, T )
+Restrict := function( S, T, lev )
 local dim, t, id, U, USU, s;
 
 dim := Length( T );
@@ -15,6 +15,6 @@ else
     return false;
 fi;
 
-return rec( S := s, T := t );
+return rec( S := s, T := t , degree := dim/3, level := lev);
 
 end;
