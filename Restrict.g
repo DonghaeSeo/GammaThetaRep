@@ -15,6 +15,6 @@ else
     return false;
 fi;
 
-return rec( S := s, T := t , degree := dim/3, level := lev);
+return rec( S := s, T^2 := t * t , degree := dim/3, level := lev);
 
 end;
