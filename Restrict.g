@@ -1,4 +1,4 @@
-Restrict := function( T, S )
+Restrict := function( S, T )
 local dim, t, id, U, USU, s;
 
 dim := Length( T );
