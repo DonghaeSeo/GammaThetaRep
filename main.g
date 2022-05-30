@@ -42,7 +42,7 @@ for i in [1..Length(testset)] do
             if res = false then 
                 continue;
             elif Length(Set(DiagonalOfMat((res.S*res.T)^3))) = 1
-            and IsCyc((res.S*res.T)^3[1,1]) then 
+            and IsCyc(((res.S*res.T)^3)[1][1]) then 
                 continue;
             else 
                 Append(result, [res]);
