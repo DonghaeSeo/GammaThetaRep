@@ -18,21 +18,16 @@ testset := Filtered(SL2IrrepsOfDegree(dim),g->g.level=level);
 #############################################################################
 # 3 + 3 reducible reps
 #
-# 
-#
-set := Filtered(SL2IrrepsOfDegree(3),g-> level mod g.level = 0);
-testset_red := [];
+set := Filtered(SL2IrrepsOfDegree(3), g-> level mod g.level = 0);
 len := Length(set);
-upper := [[1,0],[0,0]];
-lower := [[0,0],[0,1]];
 for i in [1..len] do
     for j in [i..len] do
-        Append(testset_red, 
-        [KroneckerProduct(upper,set[i]) + KroneckerProduct(lower,set[j])]);
+        Append(testset, 
+        [rec(S := BlockMatrix([[1,1,set[i].S],[2,2,set[j].S]],2,2), 
+        T := BlockMatrix([[1,1,set[i].T],[2,2,set[j].T]],2,2), 
+        level := LcmInt(set[i].level, set[j].level))]);
     od;
 od;
-
-Append(testset, testset_red);
 #############################################################################
 
 for i in [1..Length(testset)] do
