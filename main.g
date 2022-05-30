@@ -39,8 +39,12 @@ for i in [1..Length(testset)] do
 
         for j in [1..len] do
             res := Restrict(sorted_testset[j].S, sorted_testset[j].T, level);
-            if res = false then continue;
-            else Append(result, [res]);
+            if res = false then 
+                continue;
+            elif Length(Set(DiagonalOfMat((res.S*res.T)^3))) = 1 then 
+                continue;
+            else 
+                Append(result, [res]);
             fi;
         od;
     fi;
