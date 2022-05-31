@@ -31,14 +31,16 @@ od;
 #############################################################################
 
 for i in [1..Length(testset)] do
-    sorted_testset := SortFun(testset[i].S, testset[i].T);
+    sorted_testset := SortFun(testset[i].S, testset[i].T, testset[i].level);
     if sorted_testset = false then
         continue;
     else
         len := Length(sorted_testset);
 
         for j in [1..len] do
-            res := Restrict(sorted_testset[j].S, sorted_testset[j].T, level);
+            res := Restrict(sorted_testset[j].S, 
+                sorted_testset[j].T, 
+                sorted_testset[j].level);
             if res = false then 
                 continue;
             # elif Length(Set(DiagonalOfMat((res.S*res.T)^6))) = 1
