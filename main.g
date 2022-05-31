@@ -32,6 +32,11 @@ od;
 
 for i in [1..Length(testset)] do
     sorted_testset := SortFun(testset[i].S, testset[i].T, testset[i].level);
+
+    if Length(sorted_testset) mod 4 <> 0 then
+        Print(testset[i]);
+    fi;
+
     if sorted_testset = false then
         continue;
     else
@@ -56,7 +61,7 @@ od;
 
 result := Set(result);
 
-Print(result);
+# Print(result);
 
 
 
