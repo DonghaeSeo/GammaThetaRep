@@ -5,10 +5,24 @@ SetInfoLevel(InfoSL2Reps,0);
 Read("SortFun.g");
 Read("Restrict.g");
 
-PrimitiveBySL2IrrepsOfDegree := function(degree)
+IsPrimitiveGammaThetaRep := function(S, T)
+local mat, diag;
+
+mat := (S*T)^3 * Inverse(S^2);
+diag := DiagonalOfMat(mat);
+
+if IsDiagonalMat(mat) = false then return true;
+elif Length(Set(diag)) <> 1 then return true;
+elif IsCyc(diag[1]) = false then return true;
+else return false;
+fi;
+
+end;
+
+GammaThetaRepsByIrreps := function(degree)
 local testset, sorted, restricted, result, i, j; 
 
-testset := SL2IrrepsOfDegree(degree);
+testset := SL2IrrepsOfDegree(3*degree);
 
 result := [];
 
@@ -20,9 +34,9 @@ for i in [1..Length(testset)] do
         for j in [1..Length(sorted)] do
             restricted := Restrict(sorted[j].S, sorted[j].T, sorted[j].level);
             if restricted = false then continue;
-            # elif # check if primitive
-            else 
+            elif IsPrimitiveGammaThetaRep(sorted[j].S, sorted[j].T) then
                 Append(result, [restricted]);
+            else continue;
             fi;
         od;
     fi;
