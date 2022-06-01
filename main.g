@@ -19,10 +19,8 @@ fi;
 
 end;
 
-GammaThetaRepsByIrreps := function(degree)
-local testset, sorted, restricted, result, i, j; 
-
-testset := SL2IrrepsOfDegree(3*degree);
+SortAndRestrict := function(testset)
+local sorted, restricted, result, i, j;
 
 result := [];
 
@@ -45,6 +43,56 @@ od;
 return result;
 
 end;
+
+GammaThetaRepsByIrreps := function(degree) 
+local testset;
+
+if degree mod 3 <> 0 then return false; fi;
+
+testset := SL2IrrepsOfDegree(degree);
+
+return SortAndRestrict(testset);
+
+end;
+
+GammaThetaRepsByReducibles := function()
+local irreps, testset, i, j;
+
+irreps := SL2IrrepsOfDegree(3);
+testset := [];
+
+for i in irreps do
+    for j in irreps do
+        Append(testset,
+            [rec(
+                S := BlockMatrix([[1,1,i.S],[2,2,j.S]],2,2),
+                T := BlockMatrix([[1,1,i.T],[2,2,j.T]],2,2),
+                level := LcmInt(i.level, j.level)
+            )]
+        );
+    od;
+od;
+
+return SortAndRestrict(testset);
+
+end;
+
+# GammaThetaRepsByReducibles := function(list_of_degrees)
+# local bmatset, deg, testset, sorted, restricted, result, i;
+
+# if Sum(list_of_degrees) mod 3 <> 0 then return false; fi;
+
+# bmatset := [];
+# for deg in Set(list_of_degrees) do
+#     Append(bmatset, [rec(irreps := SL2IrrepsOfDegree(deg), degree := deg)]);
+# od;
+
+# # testset := [];
+# # for i in [1..Length(list_of_degrees)] do
+# #     BlockMatrix()
+# # od;
+
+# end;
 
 # ##############
 # # arguments
