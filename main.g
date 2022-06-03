@@ -4,6 +4,7 @@ SetInfoLevel(InfoSL2Reps,0);
 
 Read("SortFun.g");
 Read("Restrict.g");
+Read("Check.g");
 
 IsPrimitiveGammaThetaRep := function(S, T)
 local mat, diag;
