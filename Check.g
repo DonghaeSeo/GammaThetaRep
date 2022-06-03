@@ -8,7 +8,7 @@ for i in [1..Length(reps)] do
     T00 := reps[i].T[1][1];
     Append(result, [rec(
         S := reps[i].S / S00,
-        T := reps[i].T / T00,
+        T := (reps[i].T / T00)^2,
         degree := reps[i].degree
     )]);
 od;
