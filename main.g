@@ -4,7 +4,7 @@ SetInfoLevel(InfoSL2Reps,0);
 
 Read("SortFun.g");
 Read("Restrict.g");
-Read("Check.g");
+Read("CentralChar.g");
 
 IsPrimitiveGammaThetaRep := function(S, T)
 local mat, diag;
@@ -33,7 +33,9 @@ for i in [1..Length(testset)] do
         for j in [1..Length(sorted)] do
             restricted := Restrict(sorted[j].S, sorted[j].T, sorted[j].level);
             if restricted = false then continue;
-            elif IsPrimitiveGammaThetaRep(sorted[j].S, sorted[j].T) then
+            # elif IsPrimitiveGammaThetaRep(sorted[j].S, sorted[j].T) then
+            #     Append(result, [restricted]);
+            elif true then
                 Append(result, [restricted]);
             else continue;
             fi;
