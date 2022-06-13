@@ -1,4 +1,4 @@
-SortFun := function( S, T, lev )
+SortFun := function( S, T )
    local dim, loop_index, diag, perm, filtered_perm, permed_T, len, r, m, p, i, j, result;
 
    dim := Length( S );
@@ -35,7 +35,7 @@ SortFun := function( S, T, lev )
             m[i][j] := S[p[i]][p[j]];
          od;
       od;
-      Append( result, [rec( S := m, T := permed_T[loop_index], level := lev )] );
+      Append( result, [rec( S := m, T := permed_T[loop_index] )] );
    od;
 
    return Set( result );

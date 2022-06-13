@@ -14,7 +14,7 @@ IsPrimitiveGammaThetaRep := function(S, T)
 
     if IsDiagonalMat(mat) = false then return true;
     elif Length(Set(diag)) <> 1 then return true;
-    elif IsCyc(diag[1]) = false then return true;
+    elif diag[1]^Conductor(diag[1]) <> 1 then return true;
     else return false;
     fi;
 
@@ -26,12 +26,12 @@ SortAndRestrict := function(testset)
     result := [];
 
     for i in [1..Length(testset)] do
-        sorted := SortFun(testset[i].S, testset[i].T, testset[i].level);
+        sorted := SortFun(testset[i].S, testset[i].T);
 
         if sorted = false then continue;
         else
             for j in [1..Length(sorted)] do
-                restricted := Restrict(sorted[j].S, sorted[j].T, sorted[j].level);
+                restricted := Restrict(sorted[j].S, sorted[j].T);
                 if restricted = false then continue;
                 elif IsPrimitiveGammaThetaRep(sorted[j].S, sorted[j].T) then
                     Append(result, [restricted]);
@@ -54,9 +54,9 @@ GammaThetaRepsByIrreps := function(degree)
 
     return SortAndRestrict(testset);
 
-    end;
+end;
 
-    GammaThetaRepsByReducibles := function()
+GammaThetaRepsByReducibles := function()
     local irreps, testset, i, j;
 
     irreps := SL2IrrepsOfDegree(3);
@@ -68,7 +68,7 @@ GammaThetaRepsByIrreps := function(degree)
                 [rec(
                     S := BlockMatrix([[1,1,i.S],[2,2,j.S]],2,2),
                     T := BlockMatrix([[1,1,i.T],[2,2,j.T]],2,2),
-                    level := LcmInt(i.level, j.level)
+                    degree := Length(i.S) + Length(j.S)
                 )]
             );
         od;
