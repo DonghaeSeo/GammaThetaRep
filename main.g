@@ -6,20 +6,6 @@ Read("SortFun.g");
 Read("Restrict.g");
 Read("CentralChar.g");
 
-IsPrimitiveGammaThetaRep := function(S, T)
-    local mat, diag;
-
-    mat := (S*T)^3 * Inverse(S^2);
-    diag := DiagonalOfMat(mat);
-
-    if IsDiagonalMat(mat) = false then return true;
-    elif Length(Set(diag)) <> 1 then return true;
-    elif diag[1]^Conductor(diag[1]) <> 1 then return true;
-    else return false;
-    fi;
-
-end;
-
 SortAndRestrict := function(testset)
     local sorted, restricted, result, i, j;
 
@@ -33,9 +19,7 @@ SortAndRestrict := function(testset)
             for j in [1..Length(sorted)] do
                 restricted := Restrict(sorted[j].S, sorted[j].T);
                 if restricted = false then continue;
-                elif IsPrimitiveGammaThetaRep(sorted[j].S, sorted[j].T) then
-                    Append(result, [restricted]);
-                else continue;
+                else Append(result, [restricted]);
                 fi;
             od;
         fi;
