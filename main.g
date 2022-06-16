@@ -71,7 +71,7 @@ storeResults := function(rep, filename)
 
     f := OutputTextFile(filename, false);
     SetPrintFormattingStatus(f, false);
-    PrintTo(f, "<|S->", rep.S, "T->", rep.T, "\"degree\"->", rep.degree, "|>");
+    PrintTo(f, rep);
     CloseStream(f);
 end;
 
