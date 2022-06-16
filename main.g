@@ -63,7 +63,17 @@ GammaThetaRepsByReducibles := function()
 
 end;
 
+#####################
+# store
 
+storeResults := function(rep, filename)
+    local f;
+
+    f := OutputTextFile(filename, false);
+    SetPrintFormattingStatus(f, false);
+    PrintTo(f, "<|S->", rep.S, "T->", rep.T, "\"degree\"->", rep.degree, "|>");
+    CloseStream(f);
+end;
 
 #####################
 # test code
@@ -75,9 +85,6 @@ test := function(reps)
 
     Vs := [];
     len := Length(reps[1]);
-
-    for i in [1..2^len] do
-        Append(Vs, [DiagonalMat()])
 
     for rep in reps do
         if IsFusionRing(Verlinde(rep.S)) then
