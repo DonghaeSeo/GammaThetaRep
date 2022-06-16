@@ -5,6 +5,7 @@ SetInfoLevel(InfoSL2Reps,0);
 Read("SortFun.g");
 Read("Restrict.g");
 Read("CentralChar.g");
+Read("IsFusionRing.g");
 
 SortAndRestrict := function(testset)
     local sorted, restricted, result, i, j;
@@ -63,3 +64,27 @@ GammaThetaRepsByReducibles := function()
 end;
 
 
+
+#####################
+# test code
+
+test := function(reps)
+    local result, rep, Vs, len, i;
+
+    result := [];
+
+    Vs := [];
+    len := Length(reps[1]);
+
+    for i in [1..2^len] do
+        Append(Vs, [DiagonalMat()])
+
+    for rep in reps do
+        if IsFusionRing(Verlinde(rep.S)) then
+            Append(result, [rep]);
+        fi;
+    od;
+
+    return result;
+
+end;
