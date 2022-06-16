@@ -66,12 +66,12 @@ end;
 #####################
 # store
 
-storeResults := function(rep, filename)
+storeResults := function(reps, filename)
     local f;
 
     f := OutputTextFile(filename, false);
     SetPrintFormattingStatus(f, false);
-    PrintTo(f, rep);
+    PrintTo(f, List(reps));
     CloseStream(f);
 end;
 
@@ -84,7 +84,7 @@ test := function(reps)
     result := [];
 
     Vs := [];
-    len := Length(reps[1]);
+    len := Length(reps[1].S);
 
     for rep in reps do
         if IsFusionRing(Verlinde(rep.S)) then
