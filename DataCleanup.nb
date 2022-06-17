@@ -1,0 +1,84 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2458,         74]
+NotebookOptionsPosition[      1874,         56]
+NotebookOutlinePosition[      2287,         72]
+CellTagsIndexPosition[      2244,         69]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.8644288079007244`*^9, 3.864428817668621*^9}},
+ CellLabel->"In[75]:=",ExpressionUUID->"4ef433ac-b3da-48a7-9fd8-a05ade91021f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NotebookDirectory", "nosv", 
+   "\"The notebook \
+\\!\\(\\*TemplateBox[List[FrontEndObject[LinkObject[\\\"pfzef_shm\\\", 3, \
+1]], 22, \\\"FrontEndObject[LinkObject[\\\\\\\"pfzef_shm\\\\\\\", 3, 1]]\\\", \
+\\\"22\\\", \\\"\\\\\\\"\\\\:c81c\\\\:baa9 \\\\:c5c6\\\\:c74c-1\\\\\\\"\\\"], \
+\\\"NotebookObjectUnsaved\\\"]\\) is not saved.\"", 2, 75, 29, 
+   22791704029061189782, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8644288189458823`*^9},
+ CellLabel->
+  "\:d3c9\:ac00 \
+\:c911In[75]:=",ExpressionUUID->"7e7f1a40-a8f8-43b5-9928-9f684d76e296"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetDirectory", "badfile", 
+   "\"The specified argument, \\!\\(\\*RowBox[{\\\"$Failed\\\"}]\\), should \
+be a valid string or File.\"", 2, 75, 30, 22791704029061189782, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8644288189868813`*^9},
+ CellLabel->
+  "\:d3c9\:ac00 \
+\:c911In[75]:=",ExpressionUUID->"47c82439-d070-4392-99b2-01315acb86fb"]
+}, Open  ]]
+},
+WindowSize->{569.25, 624.75},
+WindowMargins->{{Automatic, 33}, {23.25, Automatic}},
+FrontEndVersion->"13.0 \:c758 Microsoft Windows (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c7a7a4d3-e804-4da4-9634-0cd601506dad"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 270, 5, 43, "Input",ExpressionUUID->"4ef433ac-b3da-48a7-9fd8-a05ade91021f"],
+Cell[853, 29, 604, 13, 40, "Message",ExpressionUUID->"7e7f1a40-a8f8-43b5-9928-9f684d76e296"],
+Cell[1460, 44, 398, 9, 28, "Message",ExpressionUUID->"47c82439-d070-4392-99b2-01315acb86fb"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

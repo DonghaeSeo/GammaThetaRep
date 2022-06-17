@@ -1,16 +1,4 @@
-IsPrimitiveGammaThetaRep := function(S, T)
-    local mat, diag;
 
-    mat := (S*T)^3 * Inverse(S^2);
-    diag := DiagonalOfMat(mat);
-
-    if IsDiagonalMat(mat) = false then return true;
-    elif Length(Set(diag)) <> 1 then return true;
-    elif diag[1]^Conductor(diag[1]) <> 1 then return true;
-    else return false;
-    fi;
-
-end;
 
 Verlinde := function(S)
     local len, N, i, j, k, s, l;
@@ -48,8 +36,6 @@ CentralChar := function(reps)
         if 0 in reps[i].S[1] then
             continue;
         elif Set(ImaginaryPart(reps[i].S[1])) <> [0] then
-            continue;
-        elif IsPrimitiveGammaThetaRep(reps[i].S, reps[i].T) = false then
             continue;
         fi;
 
