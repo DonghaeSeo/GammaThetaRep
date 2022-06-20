@@ -6,7 +6,7 @@ Read("SortFun.g");
 Read("Restrict.g");
 Read("CentralChar.g");
 Read("IsFusionRing.g");
-Read("IsPrimitiveGammaThetaRep.g");
+Read("IsPrimitiveRep.g");
 
 SortAndRestrict := function(testset)
     local sorted, restricted, result, i, j;

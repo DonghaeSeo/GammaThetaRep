@@ -39,10 +39,28 @@ FusionRingQ[fu_] := Module[{rank},
 ]
 
 
-FusionRing[reps_] := Last@Reap@Do[
-	If[FusionRingQ@Verlinde@Normal[reps[i, "S"]],
-		Sow[Normal[reps[i]]],
-		Continue[]
-	],
-	{i, Length[reps]}
+FusionRing[reps_] := Module[{S, result},
+	
+	result = Last@Reap@Do[
+		S = Normal[reps[i, "S"]];
+		
+		If[MemberQ[S[[1]], 0], Continue[]];
+
+		If[Not@Element[S[[1]], Reals], Continue[]];
+		
+		If[Not@UnitaryMatrixQ[S], Continue[]];
+
+		If[Not@SymmetricMatrixQ[S], Continue[]];
+		
+		If[FusionRingQ@Verlinde[S],
+			Sow[Normal[reps[i]]],
+			Continue[]
+		],
+		{i, Length[reps]}
+	];
+
+	If[Length[result] == 0, Return[False]];
+
+	Dataset@Union[result[[1]]]
+
 ]

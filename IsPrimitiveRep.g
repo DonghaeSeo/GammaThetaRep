@@ -1,4 +1,4 @@
-IsPrimitiveGammaThetaRep := function(S, T)
+IsPrimitiveRep := function(S, T)
     local mat, diag;
 
     mat := (S*T)^3 * Inverse(S^2);
@@ -18,7 +18,7 @@ FilterPrimitives := function(reps)
     res := [];
 
     for rep in reps do
-        if IsPrimitiveGammaThetaRep(rep.S, rep.T) then
+        if IsPrimitiveRep(rep.S, rep.T) then
             Append(res, [rep]);
         fi;
     od;

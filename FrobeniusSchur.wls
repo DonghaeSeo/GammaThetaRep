@@ -1,11 +1,11 @@
 FrobeniusSchurQ[fu_, S_, T_] := Module[{rank, d, theta, nu},
 
     rank = Length[fu];
-    d = S[[1]];
+    d = S[[1]] / S[[1, 1]];
     theta = Diagonal[T];
 
     nu = Table[
-        2 Sum[fu[[j, k, i]] d[[j]] d[[k]] (theta[[j]] / theta[[k]])^2,
+        Sum[fu[[j, k, i]] d[[j]] d[[k]] (theta[[j]] / theta[[k]])^2,
             {j, rank}, {k, rank}
         ] / Sum[d[[l]]^2, {l, rank}], 
         {i, rank}
@@ -17,16 +17,20 @@ FrobeniusSchurQ[fu_, S_, T_] := Module[{rank, d, theta, nu},
 
 ]
 
-FrobeniusSchur[reps_] := Module[{S, T},
+FrobeniusSchur[reps_] := Module[{S, T, result},
     
-    Last@Reap@Do[
+    result = Last@Reap@Do[
         S = Normal[reps[i, "S"]];
         T = Normal[reps[i, "T"]];
 
         If[FrobeniusSchurQ[
             Verlinde[S], S, T
-        ], Sow[Normal[reps]], Continue[]],
+        ], Sow[Normal[reps[i]]], Continue[]],
         {i, Length[reps]}
-    ]
+    ];
+
+    If[Length[result] == 0, Return[False]];
+
+    Dataset[result[[1]]]
 
 ]
