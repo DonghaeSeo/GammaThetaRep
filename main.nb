@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      6252,        165]
-NotebookOptionsPosition[      4781,        132]
-NotebookOutlinePosition[      5238,        149]
-CellTagsIndexPosition[      5195,        146]
+NotebookDataLength[      3817,        101]
+NotebookOptionsPosition[      3005,         80]
+NotebookOutlinePosition[      3462,         97]
+CellTagsIndexPosition[      3419,         94]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -63,8 +63,6 @@ Cell[BoxData[{
    3.8647191361892614`*^9},ExpressionUUID->"d988c308-d2e0-4fbd-9f59-\
 4a85c07123f5"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[{
  RowBox[{
   RowBox[{"Mathematicafilename", "=", "\"\<.m\>\""}], 
@@ -78,57 +76,7 @@ Cell[BoxData[{
    3.864694405702842*^9, 3.8646944084233055`*^9}, {3.8647177970383143`*^9, 
    3.8647178076616073`*^9}, {3.8647179522687235`*^9, 3.8647179528057327`*^9}, 
    3.8647191381682615`*^9},ExpressionUUID->"48ce385b-17fa-42af-b80b-\
-2de5d42cf947"],
-
-Cell[BoxData["6912"], "Output",
- CellChangeTimes->{3.864694343174674*^9, 3.8646944097027507`*^9, 
-  3.8646946023526697`*^9, 3.8647178217795963`*^9, 3.8647180019199038`*^9},
- CellLabel->
-  "Out[291]=",ExpressionUUID->"87c0cb81-0c53-4f13-8948-a03f31026428"]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"tmp", "=", 
-   RowBox[{"FrobeniusSchur", "@", 
-    RowBox[{"FusionRing", "@", 
-     RowBox[{"CentralCharge", "[", "data", "]"}]}]}]}], ";"}]], "Input",
- CellChangeTimes->{{3.8647178306553597`*^9, 3.864717830874301*^9}, {
-  3.8647180183468695`*^9, 3.8647180509809093`*^9}, {3.8647181182687397`*^9, 
-  3.8647181199856496`*^9}, {3.864718181454379*^9, 3.8647181831097183`*^9}},
- CellLabel->
-  "In[296]:=",ExpressionUUID->"567292a0-f86a-4597-837a-976af711ec44"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Length", "[", "tmp", "]"}]], "Input",
- CellChangeTimes->{{3.8647180737985125`*^9, 3.8647180757456355`*^9}},
- CellLabel->
-  "In[297]:=",ExpressionUUID->"62a29962-8317-45d2-9ee8-20a09f19bdea"],
-
-Cell[BoxData["12"], "Output",
- CellChangeTimes->{3.8647180765746937`*^9, 3.8647181410794706`*^9, 
-  3.8647182020682507`*^9},
- CellLabel->
-  "Out[297]=",ExpressionUUID->"4fd645b3-5a9a-486e-8156-9098347df3ef"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Export", "[", 
-  RowBox[{"\"\<tmp.m\>\"", ",", "tmp"}], "]"}]], "Input",
- CellChangeTimes->{{3.864718884806548*^9, 3.8647188849465485`*^9}, {
-  3.8647189862124634`*^9, 3.864718993551118*^9}},
- CellLabel->
-  "In[343]:=",ExpressionUUID->"95574532-3a5a-42bb-8a2c-f6854c33f2d5"],
-
-Cell[BoxData["\<\"tmp.m\"\>"], "Output",
- CellChangeTimes->{3.8647188856591673`*^9, 3.8647189964152317`*^9},
- CellLabel->
-  "Out[343]=",ExpressionUUID->"08bd2736-ab19-472e-9014-67f01da4f7f4"]
-}, Open  ]]
+2de5d42cf947"]
 },
 WindowSize->{569.25, 624.75},
 WindowMargins->{{168, Automatic}, {180.75, Automatic}},
@@ -154,19 +102,7 @@ Cell[882, 29, 316, 4, 32, "Output",ExpressionUUID->"936d55c6-4e3f-408f-b9e0-9f50
 }, Open  ]],
 Cell[1213, 36, 617, 15, 149, "Input",ExpressionUUID->"8bcdfb00-107c-485f-a4db-ec34d731e6ef"],
 Cell[1833, 53, 566, 10, 48, "Input",ExpressionUUID->"d988c308-d2e0-4fbd-9f59-4a85c07123f5"],
-Cell[CellGroupData[{
-Cell[2424, 67, 599, 13, 97, "Input",ExpressionUUID->"48ce385b-17fa-42af-b80b-2de5d42cf947"],
-Cell[3026, 82, 255, 4, 32, "Output",ExpressionUUID->"87c0cb81-0c53-4f13-8948-a03f31026428"]
-}, Open  ]],
-Cell[3296, 89, 491, 10, 28, "Input",ExpressionUUID->"567292a0-f86a-4597-837a-976af711ec44"],
-Cell[CellGroupData[{
-Cell[3812, 103, 214, 4, 43, "Input",ExpressionUUID->"62a29962-8317-45d2-9ee8-20a09f19bdea"],
-Cell[4029, 109, 207, 4, 32, "Output",ExpressionUUID->"4fd645b3-5a9a-486e-8156-9098347df3ef"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[4273, 118, 298, 6, 43, "Input",ExpressionUUID->"95574532-3a5a-42bb-8a2c-f6854c33f2d5"],
-Cell[4574, 126, 191, 3, 32, "Output",ExpressionUUID->"08bd2736-ab19-472e-9014-67f01da4f7f4"]
-}, Open  ]]
+Cell[2402, 65, 599, 13, 97, "Input",ExpressionUUID->"48ce385b-17fa-42af-b80b-2de5d42cf947"]
 }
 ]
 *)
