@@ -2,7 +2,8 @@ Verlinde[S_] := Module[{rank},
 	
 	rank = Length[S];
 	
-	Table[Sum[(S[[i, l]] S[[j, l]] Conjugate[S[[k, l]]]) / S[[1, l]],
+	Rationalize@Chop@N@Table[
+		Sum[(S[[i, l]] S[[j, l]] Conjugate[S[[k, l]]]) / S[[1, l]],
 			{l, rank}
 		],
 		{i, rank}, {j, rank}, {k, rank}
@@ -35,4 +36,13 @@ FusionRingQ[fu_] := Module[{rank},
 
 	True
 
+]
+
+
+FusionRing[reps_] := Last@Reap@Do[
+	If[FusionRingQ@Verlinde@Normal[reps[i, "S"]],
+		Sow[Normal[reps[i]]],
+		Continue[]
+	],
+	{i, Length[reps]}
 ]

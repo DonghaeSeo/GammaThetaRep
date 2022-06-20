@@ -1,3 +1,5 @@
+Ef[num_] := Exp[2 Pi I / num];
+
 Gap2Mathematica[filename_] := Module[{dataset},
 
     dataset = Dataset@ToExpression@StringReplace[
@@ -9,8 +11,12 @@ Gap2Mathematica[filename_] := Module[{dataset},
         ":=" -> "->", 
         "[" -> "{", 
         "]" -> "}", 
-        "E(" -> "Ef[", 
-        ")" -> "]"}
+        "E(" -> "Ef[",
+        "i" -> "I", 
+        ")" -> "]",
+        "S" -> "\"S\"",
+        "T" -> "\"T\"",
+        "degree" -> "\"degree\""}
     ];
 
     Export[StringReplace[filename, "txt" -> "m"], dataset];

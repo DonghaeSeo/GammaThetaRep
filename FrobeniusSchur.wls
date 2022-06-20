@@ -16,3 +16,17 @@ FrobeniusSchurQ[fu_, S_, T_] := Module[{rank, d, theta, nu},
     ]
 
 ]
+
+FrobeniusSchur[reps_] := Module[{S, T},
+    
+    Last@Reap@Do[
+        S = Normal[reps[i, "S"]];
+        T = Normal[reps[i, "T"]];
+
+        If[FrobeniusSchurQ[
+            Verlinde[S], S, T
+        ], Sow[Normal[reps]], Continue[]],
+        {i, Length[reps]}
+    ]
+
+]
