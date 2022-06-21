@@ -75,24 +75,3 @@ storeResults := function(reps, filename)
     PrintTo(f, List(reps));
     CloseStream(f);
 end;
-
-#####################
-# test code
-
-test := function(reps)
-    local result, rep, Vs, len, i;
-
-    result := [];
-
-    Vs := [];
-    len := Length(reps[1].S);
-
-    for rep in reps do
-        if IsFusionRing(Verlinde(rep.S)) then
-            Append(result, [rep]);
-        fi;
-    od;
-
-    return result;
-
-end;
