@@ -38,29 +38,30 @@ GammaThetaRepsByIrreps := function(degree)
 
     testset := SL2IrrepsOfDegree(degree);
 
-    return SortAndRestrict(testset);
+    return Set(SortAndRestrict(testset));
 
 end;
 
 GammaThetaRepsByReducibles := function()
-    local irreps, testset, i, j;
+    local irreps1, irreps2, testset, i, j;
 
-    irreps := SL2IrrepsOfDegree(3);
+    irreps1 := SL2IrrepsOfDegree(3);
+    irreps2 := SL2IrrepsOfDegree(3);
     testset := [];
 
-    for i in irreps do
-        for j in irreps do
+    for i in irreps1 do
+        for j in irreps2 do
             Append(testset,
                 [rec(
-                    S := BlockMatrix([[1,1,i.S],[2,2,j.S]],2,2),
-                    T := BlockMatrix([[1,1,i.T],[2,2,j.T]],2,2),
+                    S := DirectSumMat(i.S, j.S),
+                    T := DirectSumMat(i.T, j.T),
                     degree := Length(i.S) + Length(j.S)
                 )]
             );
         od;
     od;
 
-    return SortAndRestrict(testset);
+    return Set(SortAndRestrict(testset));
 
 end;
 
