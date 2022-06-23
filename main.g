@@ -7,6 +7,7 @@ Read("Restrict.g");
 Read("CentralChar.g");
 Read("IsFusionRing.g");
 Read("IsPrimitiveRep.g");
+Read("EfficientSort.g");
 
 SortAndRestrict := function(testset)
     local sorted, restricted, result, i, j;
@@ -14,7 +15,8 @@ SortAndRestrict := function(testset)
     result := [];
 
     for i in [1..Length(testset)] do
-        sorted := SortFun(testset[i].S, testset[i].T);
+        # sorted := SortFun(testset[i].S, testset[i].T);
+        sorted := EfficientSort(testset[i].S, testset[i].T, 3, 3);
 
         if sorted = false then continue;
         else
