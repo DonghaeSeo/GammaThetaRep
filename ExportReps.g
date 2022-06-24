@@ -1,7 +1,7 @@
 LoadPackage("SL2Reps");
 SetInfoLevel(InfoSL2Reps,0);
 
-Reps := function(dim, name)
+ExportReps := function(dim, name)
     local reps, result, tmp;
 
     reps := SL2IrrepsOfDegree(dim);
