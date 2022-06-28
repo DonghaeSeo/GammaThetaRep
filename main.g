@@ -4,8 +4,6 @@ SetInfoLevel(InfoSL2Reps,0);
 
 Read("SortFun.g");
 Read("Restrict.g");
-Read("CentralChar.g");
-Read("IsFusionRing.g");
 Read("IsPrimitiveRep.g");
 Read("EfficientSort.g");
 
@@ -15,8 +13,8 @@ SortAndRestrict := function(testset)
     result := [];
 
     for i in [1..Length(testset)] do
-        # sorted := SortFun(testset[i].S, testset[i].T);
-        sorted := EfficientSort(testset[i].S, testset[i].T, 3, 3);
+        sorted := SortFun(testset[i].S, testset[i].T);
+        # sorted := STPermutations(testset[i].S, testset[i].T);
 
         if sorted = false then continue;
         else
@@ -47,8 +45,8 @@ end;
 GammaThetaRepsByReducibles := function()
     local irreps1, irreps2, testset, i, j;
 
-    irreps1 := SL2IrrepsOfDegree(3);
-    irreps2 := SL2IrrepsOfDegree(3);
+    irreps1 := SL2IrrepsOfDegree(4);
+    irreps2 := SL2IrrepsOfDegree(5);
     testset := [];
 
     for i in irreps1 do

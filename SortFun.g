@@ -8,6 +8,8 @@ SortFun := function( S, T )
       Append( diag, [T[loop_index][loop_index]] );
    od;
 
+   filtered_perm := PermutationsList(diag);
+
    perm := PermutationsList( diag );
    filtered_perm := Filtered( perm, g -> Set( g{[1..dim/3]} + g{[dim/3+1..2*dim/3]} ) = [0] 
       and IsSortedList( g{[2*dim/3+1..dim]} ) );
@@ -24,12 +26,12 @@ SortFun := function( S, T )
    od;
 
    r := [1..dim];
-   m := NullMat( dim, dim );
 
    result := [];
 
    for loop_index in [1..len] do
       p := Permuted( r, PermListList( filtered_perm[loop_index], diag ) );
+      m := NullMat( dim, dim );
       for i in [1..dim] do
          for j in [1..dim] do
             m[i][j] := S[p[i]][p[j]];
