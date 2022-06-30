@@ -16,6 +16,7 @@ GAP2Mathematica[filename_] := Module[{dataset},
         ")" -> "]",
         "S" -> "\"S\"",
         "T" -> "\"T\"",
+        "level" -> "\"level\"",
         "degree" -> "\"degree\""}
     ];
 
