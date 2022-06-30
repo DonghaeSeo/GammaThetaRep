@@ -20,12 +20,12 @@ FrobeniusSchurQ[fu_, S_, T_] := Module[{rank, d, theta, nu},
 FrobeniusSchur[reps_] := Module[{S, T, result},
     
     result = Last@Reap@Do[
-        S = Normal[reps[i, "S"]];
-        T = Normal[reps[i, "T"]];
+        S = reps[[i]]["S"];
+        T = reps[[i]]["T"];
 
         If[FrobeniusSchurQ[
             Verlinde[S], S, T
-        ], Sow[Normal[reps[i]]], Continue[]],
+        ], Sow[reps[[i]]], Continue[]],
         {i, Length[reps]}
     ];
 

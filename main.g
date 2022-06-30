@@ -45,8 +45,8 @@ end;
 GammaThetaRepsByReducibles := function()
     local irreps1, irreps2, testset, i, j;
 
-    irreps1 := SL2IrrepsOfDegree(4);
-    irreps2 := SL2IrrepsOfDegree(5);
+    irreps1 := SL2IrrepsOfDegree(2);
+    irreps2 := SL2IrrepsOfDegree(4);
     testset := [];
 
     for i in irreps1 do

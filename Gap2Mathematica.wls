@@ -2,7 +2,7 @@ Ef[num_] := Exp[2 Pi I / num];
 
 GAP2Mathematica[filename_] := Module[{dataset},
 
-    dataset = Dataset@ToExpression@StringReplace[
+    dataset = ToExpression@StringReplace[
         StringDelete[Import[filename], 
         "rec"
         ],
