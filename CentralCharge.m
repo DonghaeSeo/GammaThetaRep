@@ -6,9 +6,9 @@ CentralCharge[reps_] := Module[{result, T},
 
         Sow[<|
             "S" -> reps[[i]]["S"],
-            "T" -> T / T[[1, 1]],
-            "c" -> Rationalize@Mod[Arg[T[[1, 1]]^24] / (2 Pi), 1 / 2],
-            "degree" -> reps[[i]]["degree"]
+            "T" -> Chop[T / T[[1, 1]]],
+            "c" -> Mod[24Rationalize[Arg[T[[1, 1]]] / (2 Pi)], 1/2]
+            (* "degree" -> reps[[i]]["degree"] *)
         |>],
 
         {i, Length[reps]}

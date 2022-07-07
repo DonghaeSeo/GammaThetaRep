@@ -17,7 +17,8 @@ GAP2Mathematica[filename_] := Module[{dataset},
         "S" -> "\"S\"",
         "T" -> "\"T\"",
         "level" -> "\"level\"",
-        "degree" -> "\"degree\""}
+        "degree" -> "\"degree\"",
+        "name" -> "\"name\""}
     ];
 
     Export[StringReplace[filename, "txt" -> "m"], dataset];

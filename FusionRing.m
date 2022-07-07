@@ -42,7 +42,7 @@ FusionRingQ[fu_] := Module[{rank},
 FusionRing[reps_] := Module[{S, result},
 	
 	result = Last@Reap@Do[
-		S = reps[[i]]["S"];
+		S = Chop[reps[[i]]["S"]];
 		
 		If[MemberQ[S[[1]], 0], Continue[]];
 
