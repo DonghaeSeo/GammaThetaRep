@@ -27,7 +27,8 @@ PermuteST := function(S, T)
         P := PermutationMat(PermListList(perm, diag), Dim);
         Append(result, [rec(
             S := P * S * Inverse(P),
-            T := DiagonalMat(perm)
+            T := DiagonalMat(perm),
+            degree := Dim
         )]);
     od;
 
@@ -67,7 +68,11 @@ ReduceST := function(S, T)
         return false;
     fi;
 
-    return rec(S := s, T := t);
+    return rec(
+        S := s, 
+        T := t,
+        degree := dim
+    );
 
 end;
 
@@ -130,7 +135,9 @@ DirectSumReducibleReps := function(dim1, dim2, lev)
                     result,
                     [rec(
                         S := DirectSumMat(reps1[i].S, reps1[j].S),
-                        T := DirectSumMat(reps1[i].T, reps1[j].T)
+                        T := DirectSumMat(reps1[i].T, reps1[j].T),
+                        degree := dim1 + dim2,
+                        level := lev
                     )]
                 );
             od;
@@ -151,7 +158,9 @@ DirectSumReducibleReps := function(dim1, dim2, lev)
                     result,
                     [rec(
                         S := DirectSumMat(i.S, j.S),
-                        T := DirectSumMat(i.T, j.T)
+                        T := DirectSumMat(i.T, j.T),
+                        degree := dim1 + dim2,
+                        level := lev
                     )]
                 );
             od;
