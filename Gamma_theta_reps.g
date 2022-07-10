@@ -15,6 +15,7 @@ PermuteST := function(S, T)
             g{[1..dim]} + g{[dim+1..2*dim]}
         ) = [0]
         and IsSortedList(g{[2*dim+1..Dim]})
+        # and IsSortedList(g{[1..dim]})
     );
 
     if permlist = [] then
@@ -122,10 +123,12 @@ DirectSumReducibleReps := function(dim1, dim2, lev)
     result := [];
 
     if dim1 = dim2 then
-        reps1 := Filtered(
-            SL2IrrepsOfDegree(dim1),
-            g -> g.level = lev
-        );
+        # reps1 := Filtered(
+        #     SL2IrrepsOfDegree(dim1),
+        #     g -> g.level = lev
+        # );
+
+        reps1 := SL2IrrepsOfDegree(dim1);
 
         len := Length(reps1);
 
@@ -136,8 +139,7 @@ DirectSumReducibleReps := function(dim1, dim2, lev)
                     [rec(
                         S := DirectSumMat(reps1[i].S, reps1[j].S),
                         T := DirectSumMat(reps1[i].T, reps1[j].T),
-                        degree := dim1 + dim2,
-                        level := lev
+                        degree := dim1 + dim2
                     )]
                 );
             od;
