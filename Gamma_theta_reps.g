@@ -70,8 +70,8 @@ ReduceST := function(S, T)
     fi;
 
     return rec(
-        S := s, 
-        T := t,
+        s := s, 
+        t := t,
         degree := dim
     );
 
@@ -106,7 +106,13 @@ Restrict := function(reps)
                 if rdc = false then
                     continue;
                 else
-                    Append(result, [rdc]);
+                    Append(result, [rec(
+                        S := Inverse(rep.S),
+                        T := rep.T,
+                        s := rdc.s,
+                        t := rdc.t,
+                        degree := rdc.degree
+                    )]);
                 fi;
             od;
         fi;
