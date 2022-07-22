@@ -19,6 +19,7 @@ LoadSL2ZReps := function(degree)
 
     for rep in reps do
         rep.S := ComplexConjugate(rep.S);
+        Unbind(rep.name);
     od;
 
     return reps;
@@ -127,12 +128,10 @@ main := function(degree)
 
     dim := degree / 3;
 
-    # Load representations
     reps := LoadSL2ZReps(degree);
     Print("SL2Z: ", Length(reps), "\n");
     reducible := Filtered(LoadSL2ZReps(degree), g -> IsReducible(g));
     Print("Reducible: ", Length(reducible), "\n");
-    ######################
 
     testset := [];
 
@@ -206,7 +205,7 @@ main := function(degree)
 end;
 
 
-SaveAsTXT := function(data, filename)
+SaveData := function(data, filename)
     local f;
 
     f := OutputTextFile(filename, false);
