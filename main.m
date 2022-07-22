@@ -91,7 +91,34 @@ SDConjugate[rep_] := Module[{V, dim},
         "level" -> rep["level"]
     |>&/@V
 
-]
+];
+
+
+InducedRep[rep_] := Module[{S, t, T, id},
+    id = IdentityMatrix[rep["degree"]];
+    t = DiagonalMatrix[Exp[2I Pi #]&/@rep["spin"]];
+
+    S = ArrayFlatten[{
+        {rep["S"], 0, 0},
+        {0, 0, MatrixPower[rep["S"], 2]},
+        {0, id, 0}
+    }];
+    T = ArrayFlatten[{
+        {0, t, 0},
+        {id, 0, 0},
+        {0, 0, Inverse[rep["S"].t]}
+    }];
+
+    <|
+        "S" -> S,
+        "T" -> T,
+        "degree" -> 3rep["degree"],
+        "level" -> rep["level"]
+    |>
+];
+
+
+OrthogonalMatrix[angle_] := {{Cos[angle], -Sin[angle]}, {Sin[angle], Cos[angle]}};
 
 
 (* SignedDiagonal[reps_] := Module[{Vs, result},
@@ -194,7 +221,7 @@ CongruenceQ[s_, t2_, n_] := Module[{list, len, t},
 ];
 
 
-OrthogonalMat[angle_] := {{Cos[angle], -Sin[angle]}, {Sin[angle], Cos[angle]}}; *)
+ *)
 
 
 
@@ -244,33 +271,7 @@ OrthogonalMat[angle_] := {{Cos[angle], -Sin[angle]}, {Sin[angle], Cos[angle]}}; 
 (* 
 
 
-InducedRep[rep_] := Module[{S, T, id, V},
-    id = IdentityMatrix[rep["degree"]];
-
-    S = ArrayFlatten[{
-        {rep["s"], 0, 0},
-        {0, 0, MatrixPower[rep["s"], 2]},
-        {0, id, 0}
-    }];
-    T = ArrayFlatten[{
-        {0, rep["t^2"], 0},
-        {id, 0, 0},
-        {0, 0, Inverse[rep["s"].rep["t^2"]]}
-    }];
-
-    (* V = Transpose@Eigenvectors[T];
-    <|
-        "S" -> Inverse[V].S.V,
-        "T" -> Inverse[V].T.V,
-        "degree" -> rep["degree"]
-    |> *)
-
-    <|
-        "S" -> S,
-        "T" -> T,
-        "degree" -> 3rep["degree"]
-    |>
-]; *)
+ *)
 
 
 
